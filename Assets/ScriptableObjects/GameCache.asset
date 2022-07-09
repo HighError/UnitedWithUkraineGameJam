@@ -20,15 +20,15 @@ MonoBehaviour:
   - Type: 0
     Moves: 1
     Count: 1
-    GoldPrice: 20
+    GoldPrice: 29
   - Type: 1
     Moves: 1
     Count: 1
-    GoldPrice: 20
+    GoldPrice: 35
   - Type: 2
     Moves: 1
     Count: 1
-    GoldPrice: 20
+    GoldPrice: 25
   - Type: 3
     Moves: 1
     Count: 1
@@ -36,106 +36,106 @@ MonoBehaviour:
   - Type: 4
     Moves: 1
     Count: 1
-    GoldPrice: 20
+    GoldPrice: 10
   - Type: 5
     Moves: 1
     Count: 1
-    GoldPrice: 20
+    GoldPrice: 5
   - Type: 6
     Moves: 1
     Count: 1
-    GoldPrice: 20
+    GoldPrice: 13
   - Type: 7
     Moves: 1
     Count: 1
-    GoldPrice: 20
+    GoldPrice: 54
   - Type: 8
     Moves: 1
     Count: 1
-    GoldPrice: 20
+    GoldPrice: 24
   - Type: 9
     Moves: 1
     Count: 1
-    GoldPrice: 20
+    GoldPrice: 33
   - Type: 10
     Moves: 1
     Count: 1
-    GoldPrice: 20
+    GoldPrice: 62
   - Type: 11
     Moves: 1
     Count: 1
-    GoldPrice: 20
+    GoldPrice: 32
   - Type: 12
     Moves: 1
     Count: 1
-    GoldPrice: 20
+    GoldPrice: 33
   - Type: 13
     Moves: 1
     Count: 1
-    GoldPrice: 20
+    GoldPrice: 93
   - Type: 14
     Moves: 1
     Count: 1
-    GoldPrice: 20
+    GoldPrice: 19
   cellDataList:
   - CellType: 2
     Resource: 0
     Image: {fileID: 21300000, guid: 2be7da466da0be54b832e559105a7a48, type: 3}
-    GoldPrice: 20
+    GoldPrice: 138
   - CellType: 2
     Resource: 1
     Image: {fileID: 21300000, guid: 00c1a7c24f8f9b1489386eef2c0afd60, type: 3}
-    GoldPrice: 20
+    GoldPrice: 235
   - CellType: 2
     Resource: 2
     Image: {fileID: 21300000, guid: 4c79aa7a4aa5a42488928bf08bfa06c0, type: 3}
-    GoldPrice: 20
+    GoldPrice: 100
   - CellType: 2
     Resource: 3
     Image: {fileID: 21300000, guid: f01113e62e2af6a429866c344c6ce8bd, type: 3}
-    GoldPrice: 20
+    GoldPrice: 95
   - CellType: 1
     Resource: 4
     Image: {fileID: 21300000, guid: f5af79d907f3bf645b03a8e1440a332d, type: 3}
-    GoldPrice: 20
+    GoldPrice: 72
   - CellType: 1
     Resource: 5
     Image: {fileID: 21300000, guid: c6fac964a74ad974aa8cdc5fba37ec76, type: 3}
-    GoldPrice: 20
+    GoldPrice: 63
   - CellType: 1
     Resource: 6
     Image: {fileID: 21300000, guid: 2a08016cc4c73c449bdfaec3516b33ec, type: 3}
-    GoldPrice: 20
+    GoldPrice: 65
   - CellType: 1
     Resource: 7
     Image: {fileID: 21300000, guid: b5ff716fd7e75f141b53d652137e6aaf, type: 3}
-    GoldPrice: 20
+    GoldPrice: 218
   - CellType: 0
     Resource: 8
     Image: {fileID: 21300000, guid: 5e7a3d7431d5e6f4491e52c28f2f00f8, type: 3}
-    GoldPrice: 20
+    GoldPrice: 144
   - CellType: 0
     Resource: 9
     Image: {fileID: 21300000, guid: 23b8a0cbde1d90e4b8b7534f52e3c781, type: 3}
-    GoldPrice: 20
+    GoldPrice: 142
   - CellType: 0
     Resource: 10
     Image: {fileID: 21300000, guid: adf68984c8d90df4297a4266d806791f, type: 3}
-    GoldPrice: 20
+    GoldPrice: 412
   - CellType: 0
     Resource: 11
     Image: {fileID: 21300000, guid: 2b3fcbf145d51b440bb24b7099cd895c, type: 3}
-    GoldPrice: 20
+    GoldPrice: 240
   - CellType: 3
     Resource: 12
     Image: {fileID: 21300000, guid: 958a52b3c1ab01343bb6aff4455ce8b6, type: 3}
-    GoldPrice: 20
+    GoldPrice: 143
   - CellType: 3
     Resource: 13
     Image: {fileID: 21300000, guid: abbd289e7f1922e49931a00442d2b043, type: 3}
-    GoldPrice: 20
+    GoldPrice: 515
   - CellType: 3
     Resource: 14
     Image: {fileID: 21300000, guid: a5a826bb2a365f74b9ecf051664cc33b, type: 3}
-    GoldPrice: 20
+    GoldPrice: 117
   nations: []
