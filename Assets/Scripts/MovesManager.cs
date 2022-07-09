@@ -32,7 +32,7 @@ public class MovesManager : MonoBehaviour
         GameManager.Instance.UIManager.UpdateUI();
 
         GameManager.Instance.PlayerData.tradeOffers.Clear();
-        for (int i = 0; i < UnityEngine.Random.Range(1, 3); i++)
+        for (int i = 0; i < UnityEngine.Random.Range(1, 4); i++)
         {
             CreateTradeOffer();
         }
