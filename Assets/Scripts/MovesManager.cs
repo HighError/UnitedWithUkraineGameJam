@@ -60,6 +60,7 @@ public class MovesManager : MonoBehaviour
         }
         tradeOfferInfo.resourceType = (Consts.ResourceType)UnityEngine.Random.Range(0, Enum.GetValues(typeof(Consts.ResourceType)).Length - 1);
         tradeOfferInfo.Price = (int)(GameManager.Instance.Cache.GetResource(tradeOfferInfo.resourceType).GoldPrice * UnityEngine.Random.Range(0.8f, 1.2f));
+        tradeOfferInfo.Amount = 1;
         GameManager.Instance.PlayerData.tradeOffers.Add(tradeOfferInfo);
     }
 }
