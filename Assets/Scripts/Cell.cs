@@ -44,6 +44,10 @@ public class Cell
         GameManager.Instance.MovesManager.AddCallback(distance, () => GameManager.Instance.PlayerData.ResourceFromCells(CellData.Resource, count));
         CurrentResourceCount = 0;
         GameManager.Instance.MapManager.SetNotificationMap(Position, false);
+        GameManager.Instance.PlayerData.money -= 5;
+        if (GameManager.Instance.PlayerData.money < 5) {
+            GameManager.Instance.PlayerData.money = 0;
+        }
     }
 
     public void NextMove() {
