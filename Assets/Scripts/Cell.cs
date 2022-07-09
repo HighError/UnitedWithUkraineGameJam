@@ -35,6 +35,7 @@ public class Cell
 
     public void MoveToCity()
     {
-        //TODO: create method
+        int distance = (int)Mathf.Sqrt(Vector3.Distance(Vector3.zero, this.Position));
+        GameManager.Instance.MovesManager.AddCallback(distance, () => GameManager.Instance.PlayerData.ResourceFromCells(this));
     }
 }
