@@ -27,6 +27,9 @@ public class Map : MonoBehaviour
         {
             for (int j = 0; j < 20; j++)
             {
+                if (i < 2 && j < 2) {
+                    continue;
+                }
                 int number = rand.Next() % tiles.Length;
                 Consts.CellType cellType = (Consts.CellType)(number / tilesInOneCategory);
                 Vector3Int position = new Vector3Int(i, j, 0);
