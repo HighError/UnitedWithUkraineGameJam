@@ -99,4 +99,9 @@ public class CacheScript : MonoBehaviour
             return nations[nationName];
         return new Nation { Name = Consts.INVALID_NATION_NAME};
     }
+
+    public Dictionary<string, Nation> GetNations()
+    {
+        return nations;
+    }
 }

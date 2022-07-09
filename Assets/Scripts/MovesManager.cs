@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,10 +31,31 @@ public class MovesManager : MonoBehaviour
         GameManager.Instance.MapManager.cells.ForEach(cell => cell.NextMove());
         GameManager.Instance.PlayerData.turn++;
         GameManager.Instance.UIManager.UpdateUI();
+        CreateTradeOffer();
     }
 
     public void AddCallback(int movesToWait, UnityAction callback)
     {
         callbacks.Add(new KeyValuePair<int, UnityAction>(currentMove + movesToWait, callback));
+    }
+
+    private void CreateTradeOffer()
+    {
+        TradeOfferInfo tradeOfferInfo = new TradeOfferInfo();
+        var nations = GameManager.Instance.Cache.GetNations();
+        int nationIndex = UnityEngine.Random.Range(0, nations.Count - 1);
+        int i = 0;
+        foreach (var item in nations)
+        {
+            if (i == nationIndex)
+            {
+                tradeOfferInfo.NationName = item.Key;
+                break;
+            }
+            i++;
+        }
+        tradeOfferInfo.resourceType = (Consts.ResourceType)UnityEngine.Random.Range(0, Enum.GetValues(typeof(Consts.ResourceType)).Length - 1);
+        //TODO: Add price and count
+        GameManager.Instance.PlayerData.tradeOffers.Add(tradeOfferInfo);
     }
 }
