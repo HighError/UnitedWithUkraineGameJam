@@ -41,5 +41,6 @@ public class Consts
     }
 
     public static int STORE_COUNT_FOR_LEVEL = 5;
+    public static int MONEY_TO_WIN = 100000;
     public const string INVALID_NATION_NAME = "UndefinedNation";
 }

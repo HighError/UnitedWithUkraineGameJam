@@ -49,5 +49,11 @@ public class TradeOfferItemScript : MonoBehaviour
         UpdateUI();
         EventSystem.CallOnUpdateTradeWindowResourcesUINeeded();
         GameManager.Instance.UIManager.UpdateUI();
+
+        if (GameManager.Instance.PlayerData.money >= Consts.MONEY_TO_WIN)
+        {
+            EventSystem.CallOnWindowsCloseNeeded();
+            GameManager.Instance.InstantiateWindow("WinWindow");
+        }
     }
 }

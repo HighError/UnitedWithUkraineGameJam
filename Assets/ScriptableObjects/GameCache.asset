@@ -17,6 +17,7 @@ MonoBehaviour:
   - {fileID: 2745519843265897242, guid: ae8bed3d6642d2f4fb9b49ebbf53dc92, type: 3}
   - {fileID: 6780487320652129990, guid: 538663b97124401429b6366296705e8e, type: 3}
   - {fileID: 2199979860392550441, guid: a46ab6028b2fe7f4aacc47a72972eb82, type: 3}
+  - {fileID: 59177713822982771, guid: a219f4132e810374dbdb25bbae5c6ba3, type: 3}
   sounds: []
   sprites: []
   resources:
