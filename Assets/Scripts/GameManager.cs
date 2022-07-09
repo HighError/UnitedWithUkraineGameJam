@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     public MovesManager MovesManager { get; private set; }
 
     private float updateLockTimer;
-
     private void Awake()
     {
         Instance = this;
@@ -23,6 +22,11 @@ public class GameManager : MonoBehaviour
         MovesManager = GetComponent<MovesManager>();
 
         updateLockTimer = 0.0f;
+    }
+
+    private void Start()
+    {
+        // Instantiate(Cache.GetWindowByName("Tutor"), Vector3.zero, Quaternion.identity, UICanvas.transform);
     }
 
     private void Update()
