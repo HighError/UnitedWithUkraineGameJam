@@ -50,6 +50,7 @@ public class Cell
         if (Level < 5) {
             Level++;
             GameManager.Instance.PlayerData.money -= Level * CellData.GoldPrice;
+            GameManager.Instance.UIManager.UpdateUI();
         }
     }
 }

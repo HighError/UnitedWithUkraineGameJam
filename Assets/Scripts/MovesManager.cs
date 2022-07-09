@@ -10,8 +10,9 @@ public class MovesManager : MonoBehaviour
 
     private void Awake()
     {
-        currentMove = 0;
+        currentMove = 1;
         callbacks = new List<KeyValuePair<int, UnityAction>>();
+        GameManager.Instance.UIManager.UpdateUI();
     }
 
     public void NextMove()
@@ -27,6 +28,8 @@ public class MovesManager : MonoBehaviour
         }
 
         GameManager.Instance.MapManager.cells.ForEach(cell => cell.NextMove());
+        GameManager.Instance.PlayerData.turn++;
+        GameManager.Instance.UIManager.UpdateUI();
     }
 
     public void AddCallback(int movesToWait, UnityAction callback)

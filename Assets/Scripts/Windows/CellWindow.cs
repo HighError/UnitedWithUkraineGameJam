@@ -39,13 +39,18 @@ public class CellWindow : BaseWindow
             UpgradeButton.interactable = false;
         }
         else {
-            UpgradeButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = $"Upgrade: {cost}?";
+            UpgradeButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = $"Upgrade: {cost}$";
             UpgradeButton.interactable = GameManager.Instance.PlayerData.money >= cost;
         }
     }
 
     public void Upgrade() {
         cell.Upgrade();
+        ResetData();
+    }
+
+    public void MoveToCity() { 
+        cell.MoveToCity();
         ResetData();
     }
 

@@ -6,6 +6,7 @@ public class PlayerData : MonoBehaviour
 {
     public Dictionary<Consts.ResourceType, int> resourcesInfo;
     public int money;
+    public int turn;
 
     private void Awake()
     {

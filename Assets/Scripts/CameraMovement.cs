@@ -24,7 +24,10 @@ public class CameraMovement : MonoBehaviour
 
     private void Update()
     {
-        PanCamera();
+        if (!BaseWindow.isWindowActive)
+        {
+            PanCamera();
+        }
     }
 
     private Vector3 ClampCamera(Vector3 targetPosition) {

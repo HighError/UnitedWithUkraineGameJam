@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public AudioManager AudioManager { get; private set; }
     public Map MapManager { get; private set; }
     public MovesManager MovesManager { get; private set; }
+    public UIManager UIManager { get; private set; }
 
     private float updateLockTimer;
     private void Awake()
@@ -20,13 +21,14 @@ public class GameManager : MonoBehaviour
         PlayerData = GetComponent<PlayerData>();
         AudioManager = GetComponent<AudioManager>();
         MovesManager = GetComponent<MovesManager>();
+        UIManager = GetComponent<UIManager>();
 
         updateLockTimer = 0.0f;
     }
 
     private void Start()
     {
-        // Instantiate(Cache.GetWindowByName("Tutor"), Vector3.zero, Quaternion.identity, UICanvas.transform);
+        Instantiate(Cache.GetWindowByName("Tutor"), Vector3.zero, Quaternion.identity, UICanvas.transform);
     }
 
     private void Update()
@@ -43,6 +45,11 @@ public class GameManager : MonoBehaviour
             Vector3Int clickCellPosition = MapManager.map.WorldToCell(clickPosition);
             clickCellPosition.z = 0;
             Cell cell = MapManager.GetCell(clickCellPosition);
+            if (clickCellPosition.x < 2 && clickCellPosition.y < 2) {
+                GameManager.Instance.InstantiateWindow("TradeWindow");
+                LeanTween.value(0.0f, 1.0f, 1.0f);
+                return;
+            }
             if (cell != null && cell.CellData.CellType != Consts.CellType.None)
             {
                 updateLockTimer = Consts.WINDOW_INSTANTIATE_BLOCK_TIME;
@@ -50,6 +57,10 @@ public class GameManager : MonoBehaviour
                 CellWindow window = InstantiateWindow("CellWindow").GetComponent<CellWindow>();
                 window.SetCell(cell);
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && !BaseWindow.isWindowActive) {
+            GameManager.Instance.MovesManager.NextMove();
         }
     }
 
