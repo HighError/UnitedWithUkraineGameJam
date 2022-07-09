@@ -12,6 +12,7 @@ public class CacheScript : MonoBehaviour
     private Dictionary<string, Sprite> sprites;
     private Dictionary<Consts.ResourceType, Resource> resources;
     private Dictionary<Consts.CellType, CellData> cellDataList;
+    private Dictionary<string, Nation> nations;
 
     private void Awake()
     {
@@ -44,6 +45,11 @@ public class CacheScript : MonoBehaviour
         foreach (var cellData in cacheSO.cellDataList)
         {
             cellDataList.Add(cellData.CellType, cellData);
+        }
+        nations = new Dictionary<string, Nation>();
+        foreach (var nation in cacheSO.nations)
+        {
+            nations.Add(nation.Name, nation);
         }
     }
 
@@ -87,5 +93,12 @@ public class CacheScript : MonoBehaviour
         if (cellDataList.ContainsKey(cellType))
             return cellDataList[cellType];
         return new CellData { CellType = Consts.CellType.None };
+    }
+
+    public Nation GetNation(string nationName)
+    {
+        if (nations.ContainsKey(nationName))
+            return nations[nationName];
+        return new Nation { Name = Consts.INVALID_NATION_NAME};
     }
 }

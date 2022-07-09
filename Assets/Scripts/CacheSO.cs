@@ -9,4 +9,5 @@ public class CacheSO : ScriptableObject
     public Sprite[] sprites;
     public Resource[] resources;
     public CellData[] cellDataList;
+    public Nation[] nations;
 }
