@@ -15,6 +15,7 @@ public class MovesManager : MonoBehaviour
 
     public void NextMove()
     {
+        GameManager.Instance.PlaySound("NextMoveSound");
         GameManager.Instance.PlayerData.turn++;
         for (int i = 0; i < callbacks.Count; i++)
         {

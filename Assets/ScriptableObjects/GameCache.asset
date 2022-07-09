@@ -21,6 +21,7 @@ MonoBehaviour:
   sounds:
   - {fileID: 8300000, guid: c95ac2866b4dfb54d8a6da1233395757, type: 3}
   - {fileID: 8300000, guid: ab69314ee2063ef43a9949813baae1df, type: 3}
+  - {fileID: 8300000, guid: 9568691c2636bc345b78908362b2e241, type: 3}
   sprites: []
   resources:
   - Type: 0
