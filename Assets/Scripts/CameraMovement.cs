@@ -11,6 +11,12 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private float minCamSize;
     [SerializeField] private float maxCamSize;
 
+    private float minX = 1.5f;
+    private float maxX = 15f;
+    private float minY = 0.5f;
+    private float maxY = 13.75f;
+
+
     private void Awake()
     {
         cam = GetComponent<Camera>();
@@ -19,6 +25,12 @@ public class CameraMovement : MonoBehaviour
     private void Update()
     {
         PanCamera();
+    }
+
+    private Vector3 ClampCamera(Vector3 targetPosition) {
+        float newX = Mathf.Clamp(targetPosition.x, minX, maxX);
+        float newY = Mathf.Clamp(targetPosition.y, minY, maxY);
+        return new Vector3 (newX, newY, targetPosition.z);
     }
 
     private void PanCamera() {
@@ -30,7 +42,7 @@ public class CameraMovement : MonoBehaviour
         if (Input.GetMouseButton(1))
         {
             Vector3 difference = dragOrigin - cam.ScreenToWorldPoint(Input.mousePosition);
-            cam.transform.position += difference;
+            cam.transform.position = ClampCamera(cam.transform.position + difference);
         }
 
         if (Input.mouseScrollDelta.y > 0)
@@ -47,5 +59,7 @@ public class CameraMovement : MonoBehaviour
         float newSize = increase ? cam.orthographicSize + zoomStep : cam.orthographicSize - zoomStep;
 
         cam.orthographicSize = Mathf.Clamp(newSize, minCamSize, maxCamSize);
+
+        cam.transform.position = ClampCamera(cam.transform.position);
     }
 }
