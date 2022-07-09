@@ -153,4 +153,26 @@ MonoBehaviour:
     Image: {fileID: 21300000, guid: a5a826bb2a365f74b9ecf051664cc33b, type: 3}
     TileResource: {fileID: 11400000, guid: 9b51e1afc18b35f419bb14f285fc11e2, type: 2}
     GoldPrice: 117
-  nations: []
+  nations:
+  - Name: Ukraine
+    ResourceModifiers: []
+  - Name: France
+    ResourceModifiers: []
+  - Name: Spain
+    ResourceModifiers: []
+  - Name: Sweden
+    ResourceModifiers: []
+  - Name: Norway
+    ResourceModifiers: []
+  - Name: Germany
+    ResourceModifiers: []
+  - Name: Finland
+    ResourceModifiers: []
+  - Name: Poland
+    ResourceModifiers: []
+  - Name: Italy
+    ResourceModifiers: []
+  - Name: United Kingdom
+    ResourceModifiers: []
+  - Name: Romania
+    ResourceModifiers: []
