@@ -18,12 +18,22 @@ public class TradeWindowScript : BaseWindow
         int i = 0;
         foreach (var resourceInfo in GameManager.Instance.PlayerData.resourcesInfo)
         {
-            if (resourceInfo.Value > 0)
+            if (resourceInfo.Value >= 0 && resourceInfo.Key != Consts.ResourceType.None)
             {
                 ResourceInfoItemScript infoItem = Instantiate(resourceInfoItemPrefab, resourcesContainer).GetComponent<ResourceInfoItemScript>();
                 infoItem.RectTransform.anchoredPosition3D = new Vector3(0, - START_OFFSET_Y - i * infoItem.RectTransform.sizeDelta.y);
                 resourcesContainer.sizeDelta = new Vector2(resourcesContainer.sizeDelta.x, START_OFFSET_Y / 2 + (i + 1) * infoItem.RectTransform.sizeDelta.y);
                 i++;
+
+                infoItem.CountText.text = resourceInfo.Key.ToString() + ": " + resourceInfo.Value.ToString();
+                foreach (var item in GameManager.Instance.Cache.GetCellDataList())
+                {
+                    if (item.Resource == resourceInfo.Key)
+                    {
+                        infoItem.Icon.sprite = item.Image;
+                        break;
+                    }
+                } 
             }
         }
     }
