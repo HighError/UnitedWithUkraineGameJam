@@ -18,10 +18,65 @@ MonoBehaviour:
   sprites: []
   resources:
   - Type: 0
-    Moves: 0
-    Count: 0
-    BaseResourceSpend: 0
-    GoldPrice: 0
+    Moves: 1
+    Count: 1
+    GoldPrice: 20
+  - Type: 1
+    Moves: 1
+    Count: 1
+    GoldPrice: 20
+  - Type: 2
+    Moves: 1
+    Count: 1
+    GoldPrice: 20
+  - Type: 3
+    Moves: 1
+    Count: 1
+    GoldPrice: 20
+  - Type: 4
+    Moves: 1
+    Count: 1
+    GoldPrice: 20
+  - Type: 5
+    Moves: 1
+    Count: 1
+    GoldPrice: 20
+  - Type: 6
+    Moves: 1
+    Count: 1
+    GoldPrice: 20
+  - Type: 7
+    Moves: 1
+    Count: 1
+    GoldPrice: 20
+  - Type: 8
+    Moves: 1
+    Count: 1
+    GoldPrice: 20
+  - Type: 9
+    Moves: 1
+    Count: 1
+    GoldPrice: 20
+  - Type: 10
+    Moves: 1
+    Count: 1
+    GoldPrice: 20
+  - Type: 11
+    Moves: 1
+    Count: 1
+    GoldPrice: 20
+  - Type: 12
+    Moves: 1
+    Count: 1
+    GoldPrice: 20
+  - Type: 13
+    Moves: 1
+    Count: 1
+    GoldPrice: 20
+  - Type: 14
+    Moves: 1
+    Count: 1
+    GoldPrice: 20
   cellDataList:
   - CellType: 2
     Resource: 0

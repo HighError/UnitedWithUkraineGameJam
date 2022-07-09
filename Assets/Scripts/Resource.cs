@@ -9,6 +9,5 @@ public struct Resource
 
     public int Moves;
     public int Count;
-    public int BaseResourceSpend;
     public int GoldPrice;
 }
