@@ -6,6 +6,7 @@ using UnityEngine;
 public class WinWindowScript : BaseWindow
 {
     [SerializeField] private TextMeshProUGUI MovesText;
+    [SerializeField] private TextMeshProUGUI Nicknamw;
 
     protected override void Awake()
     {
@@ -16,6 +17,12 @@ public class WinWindowScript : BaseWindow
     public override void ButtonCloseOnClick()
     {
         GameManager.Instance.PlaySound("ButtonClick");
-        Application.Quit();
+        if (Nicknamw.text == "") {
+            Application.Quit(); 
+        }
+        GameJolt.API.Scores.Add(GameManager.Instance.PlayerData.turn, $"{GameManager.Instance.PlayerData.turn} turns", Nicknamw.text, 741470, "", (bool success) =>
+        {
+            Application.Quit();
+        });
     }
 }
