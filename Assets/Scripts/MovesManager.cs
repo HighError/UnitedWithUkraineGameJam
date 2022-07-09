@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -55,7 +54,7 @@ public class MovesManager : MonoBehaviour
             i++;
         }
         tradeOfferInfo.resourceType = (Consts.ResourceType)UnityEngine.Random.Range(0, Enum.GetValues(typeof(Consts.ResourceType)).Length - 1);
-        //TODO: Add price and count
+        tradeOfferInfo.Price = (int)(GameManager.Instance.Cache.GetResource(tradeOfferInfo.resourceType).GoldPrice * UnityEngine.Random.Range(0.8f, 1.2f));
         GameManager.Instance.PlayerData.tradeOffers.Add(tradeOfferInfo);
     }
 }
