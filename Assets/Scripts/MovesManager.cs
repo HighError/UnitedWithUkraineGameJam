@@ -30,7 +30,12 @@ public class MovesManager : MonoBehaviour
         GameManager.Instance.MapManager.cells.ForEach(cell => cell.NextMove());
         GameManager.Instance.PlayerData.turn++;
         GameManager.Instance.UIManager.UpdateUI();
-        CreateTradeOffer();
+
+        GameManager.Instance.PlayerData.tradeOffers.Clear();
+        for (int i = 0; i < UnityEngine.Random.Range(1, 3); i++)
+        {
+            CreateTradeOffer();
+        }
     }
 
     public void AddCallback(int movesToWait, UnityAction callback)

@@ -393,11 +393,11 @@ RectTransform:
   m_Father: {fileID: 2329997319851873447}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &2616510905307138331
 GameObject:
   m_ObjectHideFlags: 0
@@ -1069,4 +1069,6 @@ MonoBehaviour:
   buttonClose: {fileID: 1547890534029251727}
   clicksCatcher: {fileID: 825489516878888872}
   resourceInfoItemPrefab: {fileID: 1667970553538149229, guid: 3b796a6f6f97f8642935808a9d5e9022, type: 3}
+  tradeOfferItemPrefab: {fileID: 5143685130923666485, guid: eecadfaa1b7ca844c84a2cc94404791e, type: 3}
   resourcesContainer: {fileID: 5955179351546866740}
+  tradeOffersContainer: {fileID: 1192805100993300188}

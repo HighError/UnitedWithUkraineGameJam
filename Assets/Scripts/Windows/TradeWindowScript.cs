@@ -5,7 +5,7 @@ using UnityEngine;
 public class TradeWindowScript : BaseWindow
 {
     [SerializeField] private GameObject resourceInfoItemPrefab;
-    [SerializeField] private GameObject tradeOffertemPrefab;
+    [SerializeField] private GameObject tradeOfferItemPrefab;
     [SerializeField] private RectTransform resourcesContainer;
     [SerializeField] private RectTransform tradeOffersContainer;
 
@@ -34,6 +34,25 @@ public class TradeWindowScript : BaseWindow
                         break;
                     }
                 } 
+            }
+        }
+        i = 0;
+        foreach (var tradeOfferInfo in GameManager.Instance.PlayerData.tradeOffers)
+        {
+            TradeOfferItemScript infoItem = Instantiate(tradeOfferItemPrefab, tradeOffersContainer).GetComponent<TradeOfferItemScript>();
+            infoItem.RectTransform.anchoredPosition3D = new Vector3(0, -START_OFFSET_Y - i * infoItem.RectTransform.sizeDelta.y);
+            tradeOffersContainer.sizeDelta = new Vector2(tradeOffersContainer.sizeDelta.x, START_OFFSET_Y / 2 + (i + 1) * infoItem.RectTransform.sizeDelta.y);
+            i++;
+
+            infoItem.CountText.text = tradeOfferInfo.Amount.ToString();
+            infoItem.PriceText.text = tradeOfferInfo.Price.ToString();
+            foreach (var item in GameManager.Instance.Cache.GetCellDataList())
+            {
+                if (item.Resource == tradeOfferInfo.resourceType)
+                {
+                    infoItem.ResourceIcon.sprite = item.Image;
+                    break;
+                }
             }
         }
     }
