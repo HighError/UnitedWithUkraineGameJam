@@ -1,13 +1,14 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Collections.Generic;
+using System.Linq;
 
-public class MapGenerator : MonoBehaviour
+public class Map : MonoBehaviour
 {
     public List<Cell> cells = new List<Cell>();
     public TileBase[] tiles;
 
-    private Tilemap map;
+    public Tilemap map { get; private set; }
     private System.Random rand = new System.Random();
 
     private void Start()
@@ -32,5 +33,9 @@ public class MapGenerator : MonoBehaviour
                 cells.Add(new Cell(position));
             }
         }
+    }
+
+    public Cell GetCell(Vector3Int pos) { 
+        return cells.Where(e => e.position == pos).FirstOrDefault();
     }
 }
