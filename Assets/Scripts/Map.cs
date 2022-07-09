@@ -36,6 +36,6 @@ public class Map : MonoBehaviour
     }
 
     public Cell GetCell(Vector3Int pos) { 
-        return cells.Where(e => e.position == pos).FirstOrDefault();
+        return cells.Where(e => e.Position == pos).FirstOrDefault();
     }
 }

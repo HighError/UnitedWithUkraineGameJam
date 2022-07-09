@@ -21,9 +21,9 @@ public class CellWindow : BaseWindow
 
     void ResetData()
     {
-        TitleText.text = cell.CellData.Resource.Type.ToString();
+        TitleText.text = cell.CellData.Resource.ToString();
         LevelText.text = "Current Level: " + cell.Level.ToString();
-        ResourceStorageText.text = cell.CellData.Resource.Type.ToString() + ": " 
+        ResourceStorageText.text = cell.CellData.Resource.ToString() + ": " 
             + cell.CurrentResourceCount.ToString() + "/" + cell.GetStoreLimit().ToString();
     }
 }

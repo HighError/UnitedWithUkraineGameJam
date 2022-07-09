@@ -17,9 +17,26 @@ public class Consts
     public enum ResourceType
     {
         None = -1,
-        Wood = 0,
-        Stone = 1,
-        Fish = 2
+        // Grass
+        Pig = 0,
+        Rabbit = 1,
+        Duck = 2,
+        Pumkin = 3,
+        // Gore
+        Mushrooms = 4,
+        Stone = 5,
+        Granite = 6,
+        Emerald = 7,
+        // Aqua
+        Fish = 8,
+        Crab = 9,
+        Octopus = 10,
+        Amber = 11,
+        // Sand
+        Palm = 12,
+        Diamond = 13,
+        Sandstone = 14,
+
     }
 
     public static int STORE_COUNT_FOR_LEVEL = 5;

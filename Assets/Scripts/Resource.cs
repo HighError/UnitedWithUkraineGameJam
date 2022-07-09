@@ -6,7 +6,6 @@ using UnityEngine;
 public struct Resource
 {
     public Consts.ResourceType Type;
-    public Consts.ResourceType BaseResource; //need base resource to produce resource
 
     public int Moves;
     public int Count;

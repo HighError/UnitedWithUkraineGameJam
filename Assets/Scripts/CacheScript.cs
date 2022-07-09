@@ -85,7 +85,7 @@ public class CacheScript : MonoBehaviour
     {
         if (resources.ContainsKey(resourceType))
             return resources[resourceType];
-        return new Resource { Type = Consts.ResourceType.None, BaseResource = Consts.ResourceType.None };
+        return new Resource { Type = Consts.ResourceType.None};
     }
 
     public CellData GetCellData(Consts.CellType cellType)

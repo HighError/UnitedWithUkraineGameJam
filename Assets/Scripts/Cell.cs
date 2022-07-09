@@ -6,14 +6,15 @@ using UnityEngine;
 public struct CellData
 {
     public Consts.CellType CellType;
-    public Resource Resource;
+    public Consts.ResourceType Resource;
+    public Sprite Image;
     public int GoldPrice;
 }
 
 public class Cell
 {
     public CellData CellData;
-    public Vector3Int position;
+    public Vector3Int Position;
     public int Level;
     public int CurrentResourceCount;
 
@@ -21,7 +22,7 @@ public class Cell
     {
         Level = 1;
         CurrentResourceCount = 0;
-        this.position = pos;
+        this.Position = pos;
     }
 
     public int GetStoreLimit()
