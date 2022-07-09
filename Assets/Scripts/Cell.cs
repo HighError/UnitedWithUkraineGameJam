@@ -13,13 +13,15 @@ public struct CellData
 public class Cell
 {
     public CellData CellData;
+    public Vector3Int position;
     public int Level;
     public int CurrentResourceCount;
 
-    public Cell()
+    public Cell(Vector3Int pos)
     {
         Level = 1;
         CurrentResourceCount = 0;
+        this.position = pos;
     }
 
     public int GetStoreLimit()

@@ -9,8 +9,8 @@ public class Consts
     {
         None = -1,
         Aqua = 0,
-        Grass = 1,
-        Gore = 2,
+        Gore = 1,
+        Grass = 2,
         Sand = 3
     }
 
