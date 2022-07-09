@@ -40,6 +40,7 @@ public class Cell
         }
         int distance = (int)Mathf.Sqrt(Vector3.Distance(Vector3.zero, this.Position));
         int count = CurrentResourceCount;
+        GameManager.Instance.UIManager.CreateNotification($"{count} {CellData.Resource} will be delivered in 3 turns");
         GameManager.Instance.MovesManager.AddCallback(distance, () => GameManager.Instance.PlayerData.ResourceFromCells(CellData.Resource, count));
         CurrentResourceCount = 0;
     }

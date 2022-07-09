@@ -22,7 +22,9 @@ public class PlayerData : MonoBehaviour
 
     public void ResourceFromCells(Consts.ResourceType resourceType, int count) {
         resourcesInfo[resourceType] += count;
-        
+        GameManager.Instance.UIManager.CreateNotification($"{resourceType} delivered");
+
+
     }
 }
 
