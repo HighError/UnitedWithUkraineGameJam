@@ -9,6 +9,8 @@ public class Map : MonoBehaviour
     public TileBase[] tiles;
 
     public Tilemap map { get; private set; }
+    [SerializeField] private Tilemap mapResources;
+
     private System.Random rand = new System.Random();
 
     private void Start()
@@ -30,7 +32,15 @@ public class Map : MonoBehaviour
                 Vector3Int position = new Vector3Int(i, j, 0);
 
                 map.SetTile(position, tiles[number]);
-                cells.Add(new Cell(position));
+
+                number = rand.Next() % 3;
+                if (number == 0) {
+                    List<CellData> resources = GameManager.Instance.Cache.GetCellDataList().Where(e => e.CellType == cellType).ToList();
+                    number = rand.Next() % resources.Count;
+
+                    cells.Add(new Cell(position, resources[number]));
+                    mapResources.SetTile(position, resources[number].TileResource);
+                }
             }
         }
     }

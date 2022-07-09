@@ -81,61 +81,76 @@ MonoBehaviour:
   - CellType: 2
     Resource: 0
     Image: {fileID: 21300000, guid: 2be7da466da0be54b832e559105a7a48, type: 3}
+    TileResource: {fileID: 11400000, guid: 133a3242563d58341a376ca3fc5fc322, type: 2}
     GoldPrice: 138
   - CellType: 2
     Resource: 1
     Image: {fileID: 21300000, guid: 00c1a7c24f8f9b1489386eef2c0afd60, type: 3}
+    TileResource: {fileID: 11400000, guid: b1ba8307e0d3ab54d871b772106799aa, type: 2}
     GoldPrice: 235
   - CellType: 2
     Resource: 2
     Image: {fileID: 21300000, guid: 4c79aa7a4aa5a42488928bf08bfa06c0, type: 3}
+    TileResource: {fileID: 11400000, guid: 5b86529923c0a9d43a464e7b9264debe, type: 2}
     GoldPrice: 100
   - CellType: 2
     Resource: 3
     Image: {fileID: 21300000, guid: f01113e62e2af6a429866c344c6ce8bd, type: 3}
+    TileResource: {fileID: 11400000, guid: 651e76e1de33f2142ac6024e7ef0b932, type: 2}
     GoldPrice: 95
   - CellType: 1
     Resource: 4
     Image: {fileID: 21300000, guid: f5af79d907f3bf645b03a8e1440a332d, type: 3}
+    TileResource: {fileID: 11400000, guid: 48eae9554e7536c46917bb31a9795f87, type: 2}
     GoldPrice: 72
   - CellType: 1
     Resource: 5
     Image: {fileID: 21300000, guid: c6fac964a74ad974aa8cdc5fba37ec76, type: 3}
+    TileResource: {fileID: 11400000, guid: 4df3fb1e01f29b4449935c4ea9b50152, type: 2}
     GoldPrice: 63
   - CellType: 1
     Resource: 6
     Image: {fileID: 21300000, guid: 2a08016cc4c73c449bdfaec3516b33ec, type: 3}
+    TileResource: {fileID: 11400000, guid: 9ec06e132d16e3948bf70d496e450b53, type: 2}
     GoldPrice: 65
   - CellType: 1
     Resource: 7
     Image: {fileID: 21300000, guid: b5ff716fd7e75f141b53d652137e6aaf, type: 3}
+    TileResource: {fileID: 11400000, guid: 7f6aa6523722b9d46bcd3d3fe4288ff3, type: 2}
     GoldPrice: 218
   - CellType: 0
     Resource: 8
     Image: {fileID: 21300000, guid: 5e7a3d7431d5e6f4491e52c28f2f00f8, type: 3}
+    TileResource: {fileID: 11400000, guid: 94d5a4be8319600418be18f797464089, type: 2}
     GoldPrice: 144
   - CellType: 0
     Resource: 9
     Image: {fileID: 21300000, guid: 23b8a0cbde1d90e4b8b7534f52e3c781, type: 3}
+    TileResource: {fileID: 11400000, guid: 760c3b0448855d6409556bcd3d89b83b, type: 2}
     GoldPrice: 142
   - CellType: 0
     Resource: 10
     Image: {fileID: 21300000, guid: adf68984c8d90df4297a4266d806791f, type: 3}
+    TileResource: {fileID: 11400000, guid: 8baeb72a5ea18004d8b39bc7cf5f8b4b, type: 2}
     GoldPrice: 412
   - CellType: 0
     Resource: 11
     Image: {fileID: 21300000, guid: 2b3fcbf145d51b440bb24b7099cd895c, type: 3}
+    TileResource: {fileID: 11400000, guid: a77a58f1235e05345bbdd6bfe02d8bdd, type: 2}
     GoldPrice: 240
   - CellType: 3
     Resource: 12
     Image: {fileID: 21300000, guid: 958a52b3c1ab01343bb6aff4455ce8b6, type: 3}
+    TileResource: {fileID: 11400000, guid: 17bd6e0236a9ce446ae602909137ccc6, type: 2}
     GoldPrice: 143
   - CellType: 3
     Resource: 13
     Image: {fileID: 21300000, guid: abbd289e7f1922e49931a00442d2b043, type: 3}
+    TileResource: {fileID: 11400000, guid: 7cb4863760f2842499c78f3d32091f97, type: 2}
     GoldPrice: 515
   - CellType: 3
     Resource: 14
     Image: {fileID: 21300000, guid: a5a826bb2a365f74b9ecf051664cc33b, type: 3}
+    TileResource: {fileID: 11400000, guid: 9b51e1afc18b35f419bb14f285fc11e2, type: 2}
     GoldPrice: 117
   nations: []

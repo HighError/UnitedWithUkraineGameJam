@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 [System.Serializable]
 public struct CellData
@@ -8,6 +9,7 @@ public struct CellData
     public Consts.CellType CellType;
     public Consts.ResourceType Resource;
     public Sprite Image;
+    public Tile TileResource;
     public int GoldPrice;
 }
 
@@ -18,11 +20,12 @@ public class Cell
     public int Level;
     public int CurrentResourceCount;
 
-    public Cell(Vector3Int pos)
+    public Cell(Vector3Int pos, CellData cellData)
     {
         Level = 1;
         CurrentResourceCount = 0;
         this.Position = pos;
+        this.CellData = cellData;
     }
 
     public int GetStoreLimit()

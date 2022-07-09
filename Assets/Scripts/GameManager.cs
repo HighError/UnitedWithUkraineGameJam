@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
             Vector3Int clickCellPosition = MapManager.map.WorldToCell(clickPosition);
             clickCellPosition.z = 0;
             Cell cell = MapManager.GetCell(clickCellPosition);
+            Debug.Log(cell.CellData.Resource);
         }
     }
 
