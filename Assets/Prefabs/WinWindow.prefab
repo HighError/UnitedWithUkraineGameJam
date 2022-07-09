@@ -617,4 +617,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonClose: {fileID: 685046305636017315}
   clicksCatcher: {fileID: 0}
-  MovesText: {fileID: 0}
+  MovesText: {fileID: 4535382842296049033}
