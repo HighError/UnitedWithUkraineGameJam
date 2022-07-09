@@ -7,8 +7,11 @@ public class Map : MonoBehaviour
 {
     public List<Cell> cells = new List<Cell>();
     public TileBase[] tiles;
+    public TileBase myTile;
+    public TileBase notificationTile;
 
     public Tilemap map { get; private set; }
+    public Tilemap otherMap;
     [SerializeField] private Tilemap mapResources;
 
     private System.Random rand = new System.Random();
@@ -50,5 +53,13 @@ public class Map : MonoBehaviour
 
     public Cell GetCell(Vector3Int pos) { 
         return cells.Where(e => e.Position == pos).FirstOrDefault();
+    }
+
+    public void BuyCell(Vector3Int pos) {
+        map.SetTile(pos, myTile);
+    }
+
+    public void SetNotificationMap(Vector3Int pos, bool active) {
+        otherMap.SetTile(pos, (active ? notificationTile : null));
     }
 }

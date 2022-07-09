@@ -79618,6 +79618,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1875728300feb2d4d8cfc1b7e7e358b3, type: 2}
   - {fileID: 11400000, guid: 1255224c45554304eb5446f7fac1acc3, type: 2}
   - {fileID: 11400000, guid: c7b4710d638f5434e8f7d4f81e727169, type: 2}
+  myTile: {fileID: 11400000, guid: 44e9b99ef49d6994fb137c7811510024, type: 2}
+  notificationTile: {fileID: 11400000, guid: 13127fdb0560e0946addf650929880a7, type: 2}
+  otherMap: {fileID: 1510780571}
   mapResources: {fileID: 1339258064}
 --- !u!1 &435323500
 GameObject:
@@ -80021,8 +80024,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -730.00006, y: -92.5}
-  m_SizeDelta: {x: -1460, y: -185}
+  m_AnchoredPosition: {x: -724.99994, y: -92.5}
+  m_SizeDelta: {x: -1470, y: -185}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &583560338
 MonoBehaviour:
