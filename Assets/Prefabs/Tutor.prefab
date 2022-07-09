@@ -67,16 +67,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'You are a businessman who wants to create a volunteer organization that
     will help people from all over the world. To implement this idea, you will need
-    start-up capital, $100,000. You have found mining and resale of resources to
-    be the best available option. And here we go...
+    start-up capital, $10,000. You have found mining and resale of resources to be
+    the best available option. And here we go...
 
 
     Control:
 
-    RMB - Move
-    camera
+    RMB - Move camera
 
-    Mouse Wheel - Zoom
+    Mouse
+    Wheel - Zoom
 
     Space - Next move
 

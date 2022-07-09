@@ -26,6 +26,7 @@ public class BaseWindow : MonoBehaviour
 
     public virtual void ShowWindow()
     {
+        GameManager.Instance.PlaySound("ButtonClick");
         isWindowActive = true;
         hidingPos = new Vector3(0, GameManager.Instance.UICanvas.pixelRect.size.y / 2 + rectTransform.sizeDelta.y);
         rectTransform.anchoredPosition3D = hidingPos;

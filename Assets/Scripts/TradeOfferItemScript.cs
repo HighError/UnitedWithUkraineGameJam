@@ -46,6 +46,7 @@ public class TradeOfferItemScript : MonoBehaviour
     {
         if (GameManager.Instance.PlayerData.resourcesInfo[tradeOfferInfo.ResourceType] > 0)
         {
+            GameManager.Instance.PlaySound("SellSound");
             GameManager.Instance.PlayerData.money += tradeOfferInfo.Price;
             GameManager.Instance.PlayerData.resourcesInfo[tradeOfferInfo.ResourceType] -= 1;
             UpdateUI();

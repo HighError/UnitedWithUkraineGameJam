@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && !BaseWindow.isWindowActive) 
         {
+            GameManager.Instance.PlaySound("ButtonClick");
             Vector3 clickPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3Int clickCellPosition = MapManager.map.WorldToCell(clickPosition);
             clickCellPosition.z = 0;

@@ -57,17 +57,20 @@ public class CellWindow : BaseWindow
     }
 
     public void Upgrade() {
+        GameManager.Instance.PlaySound("ButtonClick");
         cell.Upgrade();
         ResetData();
     }
 
     public void MoveToCity() {
+        GameManager.Instance.PlaySound("ButtonClick");
         cell.MoveToCity();
         ResetData();
     }
 
     public override void ShowWindow()
     {
+        GameManager.Instance.PlaySound("ButtonClick");
         isWindowActive = true;
         hidingPos = new Vector3(GameManager.Instance.UICanvas.pixelRect.size.x / 2 + rectTransform.sizeDelta.x, 0);
         rectTransform.anchoredPosition3D = hidingPos;
