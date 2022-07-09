@@ -20,11 +20,26 @@ public class CellWindow : BaseWindow
         ResetData();
     }
 
-    void ResetData()
+    private void ResetData()
     {
         TitleText.text = cell.CellData.Resource.ToString();
         LevelText.text = "Current Level: " + cell.Level.ToString();
         ResourceStorageText.text = cell.CellData.Resource.ToString() + ": " 
             + cell.CurrentResourceCount.ToString() + "/" + cell.GetStoreLimit().ToString();
+        int cost = (cell.Level + 1) * cell.CellData.GoldPrice;
+        if (cell.Level == 5)
+        {
+            UpgradeButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Max Level";
+            UpgradeButton.interactable = false;
+        }
+        else {
+            UpgradeButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = $"Upgrade: {cost}?";
+            UpgradeButton.interactable = GameManager.Instance.PlayerData.money >= cost;
+        }
+    }
+
+    public void Upgrade() {
+        cell.Upgrade();
+        ResetData();
     }
 }

@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        if (Input.GetMouseButtonDown(0)) 
+        if (Input.GetMouseButtonDown(0) && !BaseWindow.isWindowActive) 
         {
             Vector3 clickPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3Int clickCellPosition = MapManager.map.WorldToCell(clickPosition);

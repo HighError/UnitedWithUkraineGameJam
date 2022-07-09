@@ -22,7 +22,7 @@ public class Cell
 
     public Cell(Vector3Int pos, CellData cellData)
     {
-        Level = 1;
+        Level = 0;
         CurrentResourceCount = 0;
         this.Position = pos;
         this.CellData = cellData;
@@ -37,5 +37,19 @@ public class Cell
     {
         int distance = (int)Mathf.Sqrt(Vector3.Distance(Vector3.zero, this.Position));
         GameManager.Instance.MovesManager.AddCallback(distance, () => GameManager.Instance.PlayerData.ResourceFromCells(this));
+    }
+
+    public void NextMove() {
+        int number = Random.Range(0, 3);
+        if (number % 3 == 0 && CurrentResourceCount < GetStoreLimit()) {
+            CurrentResourceCount++;
+        }
+    }
+
+    public void Upgrade() {
+        if (Level < 5) {
+            Level++;
+            GameManager.Instance.PlayerData.money -= Level * CellData.GoldPrice;
+        }
     }
 }

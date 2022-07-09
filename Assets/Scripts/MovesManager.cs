@@ -11,6 +11,7 @@ public class MovesManager : MonoBehaviour
     private void Awake()
     {
         currentMove = 0;
+        callbacks = new List<KeyValuePair<int, UnityAction>>();
     }
 
     public void NextMove()
@@ -24,6 +25,8 @@ public class MovesManager : MonoBehaviour
                 --i;
             }
         }
+
+        GameManager.Instance.MapManager.cells.ForEach(cell => cell.NextMove());
     }
 
     public void AddCallback(int movesToWait, UnityAction callback)

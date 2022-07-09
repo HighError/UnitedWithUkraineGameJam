@@ -5,6 +5,7 @@ public class BaseWindow : MonoBehaviour
 {
     [SerializeField] private Button buttonClose;
     [SerializeField] private RectTransform clicksCatcher;
+    public static bool isWindowActive;
 
     private RectTransform rectTransform;
     protected Vector2 hidingPos;
@@ -25,6 +26,7 @@ public class BaseWindow : MonoBehaviour
 
     public virtual void ShowWindow()
     {
+        isWindowActive = true;
         hidingPos = new Vector3(GameManager.Instance.UICanvas.pixelRect.size.x / 2 + rectTransform.sizeDelta.x, 0);
         rectTransform.anchoredPosition3D = hidingPos;
 
@@ -37,6 +39,7 @@ public class BaseWindow : MonoBehaviour
 
     public virtual void HideWindow()
     {
+        isWindowActive = false;
         LeanTween.cancel(gameObject);
         LeanTween.moveLocal(gameObject, hidingPos, Consts.WINDOW_SHOWING_ANIM_TIME)
             .setOnComplete(() => Destroy(gameObject));

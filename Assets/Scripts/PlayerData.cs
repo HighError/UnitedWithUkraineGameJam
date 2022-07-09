@@ -5,6 +5,7 @@ using System;
 public class PlayerData : MonoBehaviour
 {
     public Dictionary<Consts.ResourceType, int> resourcesInfo;
+    public int money;
 
     public void ResourceFromCells(Cell cell) {
         Debug.Log("test");
