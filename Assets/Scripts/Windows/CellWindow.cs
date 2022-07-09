@@ -42,4 +42,25 @@ public class CellWindow : BaseWindow
         cell.Upgrade();
         ResetData();
     }
+
+    public override void ShowWindow()
+    {
+        isWindowActive = true;
+        hidingPos = new Vector3(GameManager.Instance.UICanvas.pixelRect.size.x / 2 + rectTransform.sizeDelta.x, 0);
+        rectTransform.anchoredPosition3D = hidingPos;
+
+        if (clicksCatcher)
+        {
+            clicksCatcher.sizeDelta = GameManager.Instance.UICanvas.GetComponent<RectTransform>().sizeDelta * 5;
+        }
+        LeanTween.moveLocal(gameObject, new Vector3(GameManager.Instance.UICanvas.pixelRect.size.x / 2, 0), Consts.WINDOW_SHOWING_ANIM_TIME);
+    }
+
+    public override void HideWindow()
+    {
+        isWindowActive = false;
+        LeanTween.cancel(gameObject);
+        LeanTween.moveLocal(gameObject, hidingPos, Consts.WINDOW_SHOWING_ANIM_TIME)
+            .setOnComplete(() => Destroy(gameObject));
+    }
 }

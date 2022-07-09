@@ -3,11 +3,11 @@ using UnityEngine.UI;
 
 public class BaseWindow : MonoBehaviour
 {
-    [SerializeField] private Button buttonClose;
-    [SerializeField] private RectTransform clicksCatcher;
+    [SerializeField] protected Button buttonClose;
+    [SerializeField] protected RectTransform clicksCatcher;
     public static bool isWindowActive;
 
-    private RectTransform rectTransform;
+    protected RectTransform rectTransform;
     protected Vector2 hidingPos;
 
     protected virtual void Awake()
@@ -27,7 +27,7 @@ public class BaseWindow : MonoBehaviour
     public virtual void ShowWindow()
     {
         isWindowActive = true;
-        hidingPos = new Vector3(GameManager.Instance.UICanvas.pixelRect.size.x / 2 + rectTransform.sizeDelta.x, 0);
+        hidingPos = new Vector3(rectTransform.anchoredPosition3D.x, GameManager.Instance.UICanvas.pixelRect.size.y / 2 + rectTransform.sizeDelta.y);
         rectTransform.anchoredPosition3D = hidingPos;
 
         if (clicksCatcher)
