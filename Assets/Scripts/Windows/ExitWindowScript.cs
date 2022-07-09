@@ -1,19 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class WinWindowScript : BaseWindow
+public class ExitWindowScript : BaseWindow
 {
-    [SerializeField] private TextMeshProUGUI MovesText;
+    public Button ButtonYes;
 
     protected override void Awake()
     {
         base.Awake();
-        MovesText.text = "Moves: " + GameManager.Instance.PlayerData.turn.ToString();
+        ButtonYes.onClick.AddListener(ButtonYesOnClick);
     }
 
-    public override void ButtonCloseOnClick()
+    public void ButtonYesOnClick()
     {
         GameManager.Instance.PlaySound("ButtonClick");
         Application.Quit();

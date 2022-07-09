@@ -20,6 +20,6 @@ public class ButtonQuitScript : MonoBehaviour
 
     private void ButtonQuitOnClick()
     {
-        Application.Quit();
+        GameManager.Instance.InstantiateWindow("ExitWindow");
     }
 }
