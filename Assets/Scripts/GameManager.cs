@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
             if (cell != null && cell.CellData.CellType != Consts.CellType.None)
             {
                 updateLockTimer = Consts.WINDOW_INSTANTIATE_BLOCK_TIME;
+                EventSystem.CallOnWindowsCloseNeeded();
                 CellWindow window = InstantiateWindow("CellWindow").GetComponent<CellWindow>();
                 window.SetCell(cell);
             }
