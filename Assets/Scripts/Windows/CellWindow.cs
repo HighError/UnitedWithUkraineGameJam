@@ -10,6 +10,7 @@ public class CellWindow : BaseWindow
     public TextMeshProUGUI ResourceStorageText;
     public TextMeshProUGUI LevelText;
     public Button UpgradeButton;
+    public Button MoveToCityButton;
     public Image TitleImage;
 
     private Cell cell;
@@ -33,7 +34,12 @@ public class CellWindow : BaseWindow
         ResourceStorageText.text = cell.CellData.Resource.ToString() + ": " 
             + cell.CurrentResourceCount.ToString() + "/" + cell.GetStoreLimit().ToString();
         int cost = (cell.Level + 1) * cell.CellData.GoldPrice;
-        if (cell.Level == 5)
+        if (cell.Level == 0)
+        {
+            UpgradeButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = $"Buy: {cost}$";
+            UpgradeButton.interactable = GameManager.Instance.PlayerData.money >= cost;
+        }
+        else if (cell.Level == 5)
         {
             UpgradeButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Max Level";
             UpgradeButton.interactable = false;
@@ -42,6 +48,10 @@ public class CellWindow : BaseWindow
             UpgradeButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = $"Upgrade: {cost}$";
             UpgradeButton.interactable = GameManager.Instance.PlayerData.money >= cost;
         }
+
+        LevelText.gameObject.SetActive(cell.Level != 0);
+        ResourceStorageText.gameObject.SetActive(cell.Level != 0);
+        MoveToCityButton.gameObject.SetActive(cell.Level != 0);
     }
 
     public void Upgrade() {

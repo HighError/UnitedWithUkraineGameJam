@@ -404,6 +404,7 @@ MonoBehaviour:
   ResourceStorageText: {fileID: 2745519842522001172}
   LevelText: {fileID: 4530425988010692712}
   UpgradeButton: {fileID: 2745519842759393501}
+  MoveToCityButton: {fileID: 2745519843923387288}
   TitleImage: {fileID: 2745519843194033326}
 --- !u!1 &2745519843502406307
 GameObject:
