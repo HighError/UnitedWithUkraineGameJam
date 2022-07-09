@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: GameCache
   m_EditorClassIdentifier: 
   prefabs: []
-  windows: []
+  windows:
+  - {fileID: 2745519843265897242, guid: ae8bed3d6642d2f4fb9b49ebbf53dc92, type: 3}
   sounds: []
   sprites: []
   resources:

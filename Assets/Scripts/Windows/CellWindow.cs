@@ -14,9 +14,10 @@ public class CellWindow : BaseWindow
 
     private Cell cell;
 
-    void SetCell(Cell cell)
+    public void SetCell(Cell cell)
     {
         this.cell = cell;
+        ResetData();
     }
 
     void ResetData()

@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public Map MapManager { get; private set; }
     public MovesManager MovesManager { get; private set; }
 
+    private float updateLockTimer;
+
     private void Awake()
     {
         Instance = this;
@@ -19,16 +21,30 @@ public class GameManager : MonoBehaviour
         PlayerData = GetComponent<PlayerData>();
         AudioManager = GetComponent<AudioManager>();
         MovesManager = GetComponent<MovesManager>();
+
+        updateLockTimer = 0.0f;
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0)) {
+        updateLockTimer -= Time.deltaTime;
+        if (updateLockTimer > 0)
+        {
+            return;
+        }
+
+        if (Input.GetMouseButtonDown(0)) 
+        {
             Vector3 clickPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3Int clickCellPosition = MapManager.map.WorldToCell(clickPosition);
             clickCellPosition.z = 0;
             Cell cell = MapManager.GetCell(clickCellPosition);
-            Debug.Log(cell.CellData.Resource);
+            if (cell != null && cell.CellData.CellType != Consts.CellType.None)
+            {
+                updateLockTimer = Consts.WINDOW_INSTANTIATE_BLOCK_TIME;
+                CellWindow window = InstantiateWindow("CellWindow").GetComponent<CellWindow>();
+                window.SetCell(cell);
+            }
         }
     }
 
