@@ -11,7 +11,7 @@ public class CacheScript : MonoBehaviour
     private Dictionary<string, AudioClip> sounds;
     private Dictionary<string, Sprite> sprites;
     private Dictionary<Consts.ResourceType, Resource> resources;
-    private Dictionary<Consts.CellType, CellData> cellDataList;
+    private List<CellData> cellDataList;
     private Dictionary<string, Nation> nations;
 
     private void Awake()
@@ -41,10 +41,10 @@ public class CacheScript : MonoBehaviour
         {
             resources.Add(resource.Type, resource);
         }
-        cellDataList = new Dictionary<Consts.CellType, CellData>();
+        cellDataList = new List<CellData>();
         foreach (var cellData in cacheSO.cellDataList)
         {
-            cellDataList.Add(cellData.CellType, cellData);
+            cellDataList.Add(cellData);
         }
         nations = new Dictionary<string, Nation>();
         foreach (var nation in cacheSO.nations)
@@ -88,11 +88,9 @@ public class CacheScript : MonoBehaviour
         return new Resource { Type = Consts.ResourceType.None};
     }
 
-    public CellData GetCellData(Consts.CellType cellType)
+    public List<CellData> GetCellDataList()
     {
-        if (cellDataList.ContainsKey(cellType))
-            return cellDataList[cellType];
-        return new CellData { CellType = Consts.CellType.None };
+        return cellDataList;
     }
 
     public Nation GetNation(string nationName)
