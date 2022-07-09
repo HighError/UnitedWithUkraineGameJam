@@ -6,20 +6,19 @@ using UnityEngine.Events;
 public class MovesManager : MonoBehaviour
 {
     private List<KeyValuePair<int, UnityAction>> callbacks;
-    private int currentMove;
 
     private void Awake()
     {
-        currentMove = 1;
         callbacks = new List<KeyValuePair<int, UnityAction>>();
         GameManager.Instance.UIManager.UpdateUI();
     }
 
     public void NextMove()
     {
+        GameManager.Instance.PlayerData.turn++;
         for (int i = 0; i < callbacks.Count; i++)
         {
-            if (callbacks[i].Key == currentMove)
+            if (callbacks[i].Key == GameManager.Instance.PlayerData.turn)
             {
                 callbacks[i].Value.Invoke();
                 callbacks.RemoveAt(i);
@@ -28,7 +27,6 @@ public class MovesManager : MonoBehaviour
         }
 
         GameManager.Instance.MapManager.cells.ForEach(cell => cell.NextMove());
-        GameManager.Instance.PlayerData.turn++;
         GameManager.Instance.UIManager.UpdateUI();
 
         GameManager.Instance.PlayerData.tradeOffers.Clear();
@@ -40,7 +38,7 @@ public class MovesManager : MonoBehaviour
 
     public void AddCallback(int movesToWait, UnityAction callback)
     {
-        callbacks.Add(new KeyValuePair<int, UnityAction>(currentMove + movesToWait, callback));
+        callbacks.Add(new KeyValuePair<int, UnityAction>(GameManager.Instance.PlayerData.turn + movesToWait, callback));
     }
 
     private void CreateTradeOffer()
@@ -58,8 +56,8 @@ public class MovesManager : MonoBehaviour
             }
             i++;
         }
-        tradeOfferInfo.resourceType = (Consts.ResourceType)UnityEngine.Random.Range(0, Enum.GetValues(typeof(Consts.ResourceType)).Length - 1);
-        tradeOfferInfo.Price = (int)(GameManager.Instance.Cache.GetResource(tradeOfferInfo.resourceType).GoldPrice * UnityEngine.Random.Range(0.8f, 1.2f));
+        tradeOfferInfo.ResourceType = (Consts.ResourceType)UnityEngine.Random.Range(0, Enum.GetValues(typeof(Consts.ResourceType)).Length - 1);
+        tradeOfferInfo.Price = (int)(GameManager.Instance.Cache.GetResource(tradeOfferInfo.ResourceType).GoldPrice * UnityEngine.Random.Range(0.8f, 1.2f));
         tradeOfferInfo.Amount = 1;
         GameManager.Instance.PlayerData.tradeOffers.Add(tradeOfferInfo);
     }

@@ -45,17 +45,9 @@ public class TradeWindowScript : BaseWindow
             tradeOffersContainer.sizeDelta = new Vector2(tradeOffersContainer.sizeDelta.x, START_OFFSET_Y_TRADE_OFFERS / 2 + (i + 1) * infoItem.RectTransform.sizeDelta.y);
             i++;
 
-            infoItem.CountText.text = tradeOfferInfo.Amount.ToString();
-            infoItem.PriceText.text = tradeOfferInfo.Price.ToString();
-            infoItem.NationText.text = tradeOfferInfo.NationName;
-            foreach (var item in GameManager.Instance.Cache.GetCellDataList())
-            {
-                if (item.Resource == tradeOfferInfo.resourceType)
-                {
-                    infoItem.ResourceIcon.sprite = item.Image;
-                    break;
-                }
-            }
+
+            infoItem.tradeOfferInfo = tradeOfferInfo;
+            infoItem.UpdateUI();
         }
     }
 }

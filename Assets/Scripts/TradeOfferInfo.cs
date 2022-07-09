@@ -1,6 +1,8 @@
-public struct TradeOfferInfo
+using System;
+[Serializable]
+public class TradeOfferInfo
 {
-    public Consts.ResourceType resourceType;
+    public Consts.ResourceType ResourceType;
     public string NationName;
     public int Amount;
     public int Price;

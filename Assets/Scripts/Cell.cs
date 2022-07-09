@@ -35,8 +35,13 @@ public class Cell
 
     public void MoveToCity()
     {
+        if (CurrentResourceCount == 0) {
+            return;
+        }
         int distance = (int)Mathf.Sqrt(Vector3.Distance(Vector3.zero, this.Position));
-        GameManager.Instance.MovesManager.AddCallback(distance, () => GameManager.Instance.PlayerData.ResourceFromCells(this));
+        int count = CurrentResourceCount;
+        GameManager.Instance.MovesManager.AddCallback(distance, () => GameManager.Instance.PlayerData.ResourceFromCells(CellData.Resource, count));
+        CurrentResourceCount = 0;
     }
 
     public void NextMove() {

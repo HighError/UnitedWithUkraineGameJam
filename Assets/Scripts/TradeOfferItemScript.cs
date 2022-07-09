@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class TradeOfferItemScript : MonoBehaviour
 {
+    public TradeOfferInfo tradeOfferInfo;
+
     public RectTransform RectTransform;
     public Image ResourceIcon;
     public TextMeshProUGUI NationText;
@@ -20,6 +22,21 @@ public class TradeOfferItemScript : MonoBehaviour
         SellButton.onClick.AddListener(SellButtonOnClick);
     }
 
+    public void UpdateUI() {
+        CountText.text = tradeOfferInfo.Amount.ToString();
+        NationText.text = tradeOfferInfo.NationName;
+        PriceText.text = $"{tradeOfferInfo.Price}$";
+        foreach (var item in GameManager.Instance.Cache.GetCellDataList())
+        {
+            if (item.Resource == tradeOfferInfo.ResourceType)
+            {
+                ResourceIcon.sprite = item.Image;
+                break;
+            }
+        }
+        SellButton.interactable = GameManager.Instance.PlayerData.resourcesInfo[tradeOfferInfo.ResourceType] > 0;
+    }
+
     private void OnDestroy()
     {
         SellButton.onClick.RemoveAllListeners();
@@ -27,6 +44,9 @@ public class TradeOfferItemScript : MonoBehaviour
 
     private void SellButtonOnClick()
     {
-        //TODO:: create method
+        GameManager.Instance.PlayerData.money += tradeOfferInfo.Price;
+        GameManager.Instance.PlayerData.resourcesInfo[tradeOfferInfo.ResourceType] -= 1;
+        UpdateUI();
+        GameManager.Instance.UIManager.UpdateUI();
     }
 }

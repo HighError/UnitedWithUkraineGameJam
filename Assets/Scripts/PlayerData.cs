@@ -16,18 +16,12 @@ public class PlayerData : MonoBehaviour
         resourcesInfo = new Dictionary<Consts.ResourceType, int>();
         foreach (Consts.ResourceType type in Enum.GetValues(typeof(Consts.ResourceType)))
         {
-            resourcesInfo.Add(type, 0);
+            resourcesInfo.Add(type, 999);
         }
     }
 
-    public void ResourceFromCells(Cell cell) {
-        Debug.Log("test");
-        if (!resourcesInfo.ContainsKey(cell.CellData.Resource))
-        {
-            resourcesInfo[cell.CellData.Resource] = 0;
-        }
-
-        resourcesInfo[cell.CellData.Resource] += cell.CurrentResourceCount;
+    public void ResourceFromCells(Consts.ResourceType resourceType, int count) {
+        resourcesInfo[resourceType] += count;
         
     }
 }
