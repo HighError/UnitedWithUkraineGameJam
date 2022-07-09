@@ -7,4 +7,6 @@ public class CacheSO : ScriptableObject
     public BaseWindow[] windows;
     public AudioClip[] sounds;
     public Sprite[] sprites;
+    public Resource[] resources;
+    public CellData[] cellDataList;
 }

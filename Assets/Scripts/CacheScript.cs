@@ -10,6 +10,8 @@ public class CacheScript : MonoBehaviour
     private Dictionary<string, BaseWindow> windows;
     private Dictionary<string, AudioClip> sounds;
     private Dictionary<string, Sprite> sprites;
+    private Dictionary<Consts.ResourceType, Resource> resources;
+    private Dictionary<Consts.CellType, CellData> cellDataList;
 
     private void Awake()
     {
@@ -32,6 +34,16 @@ public class CacheScript : MonoBehaviour
         foreach (var sprite in cacheSO.sprites)
         {
             sprites.Add(sprite.name, sprite);
+        }
+        resources = new Dictionary<Consts.ResourceType, Resource>();
+        foreach (var resource in cacheSO.resources)
+        {
+            resources.Add(resource.Type, resource);
+        }
+        cellDataList = new Dictionary<Consts.CellType, CellData>();
+        foreach (var cellData in cacheSO.cellDataList)
+        {
+            cellDataList.Add(cellData.CellType, cellData);
         }
     }
 
@@ -61,5 +73,19 @@ public class CacheScript : MonoBehaviour
         if (sprites.ContainsKey(spriteName))
             return sprites[spriteName];
         return null;
+    }
+
+    public Resource GetResource(Consts.ResourceType resourceType)
+    {
+        if (resources.ContainsKey(resourceType))
+            return resources[resourceType];
+        return new Resource { Type = Consts.ResourceType.None, BaseResource = Consts.ResourceType.None };
+    }
+
+    public CellData GetCellData(Consts.CellType cellType)
+    {
+        if (cellDataList.ContainsKey(cellType))
+            return cellDataList[cellType];
+        return new CellData { CellType = Consts.CellType.None };
     }
 }
