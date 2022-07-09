@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public PlayerData PlayerData { get; private set; }
     public AudioManager AudioManager { get; private set; }
     public Map MapManager { get; private set; }
+    public MovesManager MovesManager { get; private set; }
 
     private void Awake()
     {
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
         Cache = GetComponent<CacheScript>();
         PlayerData = GetComponent<PlayerData>();
         AudioManager = GetComponent<AudioManager>();
+        MovesManager = GetComponent<MovesManager>();
     }
 
     private void Update()
