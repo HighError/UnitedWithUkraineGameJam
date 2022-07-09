@@ -44,16 +44,23 @@ public class TradeOfferItemScript : MonoBehaviour
 
     private void SellButtonOnClick()
     {
-        GameManager.Instance.PlayerData.money += tradeOfferInfo.Price;
-        GameManager.Instance.PlayerData.resourcesInfo[tradeOfferInfo.ResourceType] -= 1;
-        UpdateUI();
-        EventSystem.CallOnUpdateTradeWindowResourcesUINeeded();
-        GameManager.Instance.UIManager.UpdateUI();
-
-        if (GameManager.Instance.PlayerData.money >= Consts.MONEY_TO_WIN)
+        if (GameManager.Instance.PlayerData.resourcesInfo[tradeOfferInfo.ResourceType] > 0)
         {
-            EventSystem.CallOnWindowsCloseNeeded();
-            GameManager.Instance.InstantiateWindow("WinWindow");
+            GameManager.Instance.PlayerData.money += tradeOfferInfo.Price;
+            GameManager.Instance.PlayerData.resourcesInfo[tradeOfferInfo.ResourceType] -= 1;
+            UpdateUI();
+            EventSystem.CallOnUpdateTradeWindowResourcesUINeeded();
+            GameManager.Instance.UIManager.UpdateUI();
+
+            if (GameManager.Instance.PlayerData.money >= Consts.MONEY_TO_WIN)
+            {
+                EventSystem.CallOnWindowsCloseNeeded();
+                GameManager.Instance.InstantiateWindow("WinWindow");
+            }
+        }
+        else
+        {
+            SellButton.interactable = false;
         }
     }
 }

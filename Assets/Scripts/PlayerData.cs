@@ -11,12 +11,12 @@ public class PlayerData : MonoBehaviour
 
     private void Awake()
     {
-        money = 100000;
+        money = 500;
         tradeOffers = new List<TradeOfferInfo>();
         resourcesInfo = new Dictionary<Consts.ResourceType, int>();
         foreach (Consts.ResourceType type in Enum.GetValues(typeof(Consts.ResourceType)))
         {
-            resourcesInfo.Add(type, 999);
+            resourcesInfo.Add(type, 0);
         }
     }
 

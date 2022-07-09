@@ -52,6 +52,7 @@ public class CellWindow : BaseWindow
         LevelText.gameObject.SetActive(cell.Level != 0);
         ResourceStorageText.gameObject.SetActive(cell.Level != 0);
         MoveToCityButton.gameObject.SetActive(cell.Level != 0);
+        MoveToCityButton.interactable = cell.CurrentResourceCount > 0;
     }
 
     public void Upgrade() {
@@ -59,7 +60,7 @@ public class CellWindow : BaseWindow
         ResetData();
     }
 
-    public void MoveToCity() { 
+    public void MoveToCity() {
         cell.MoveToCity();
         ResetData();
     }
