@@ -7,6 +7,16 @@ public class PlayerData : MonoBehaviour
     public Dictionary<Consts.ResourceType, int> resourcesInfo;
     public int money;
 
+    private void Awake()
+    {
+        money = 500;
+        resourcesInfo = new Dictionary<Consts.ResourceType, int>();
+        foreach (Consts.ResourceType type in Enum.GetValues(typeof(Consts.ResourceType)))
+        {
+            resourcesInfo.Add(type, 0);
+        }
+    }
+
     public void ResourceFromCells(Cell cell) {
         Debug.Log("test");
         if (!resourcesInfo.ContainsKey(cell.CellData.Resource))

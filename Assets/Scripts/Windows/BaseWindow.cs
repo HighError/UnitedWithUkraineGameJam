@@ -27,14 +27,14 @@ public class BaseWindow : MonoBehaviour
     public virtual void ShowWindow()
     {
         isWindowActive = true;
-        hidingPos = new Vector3(rectTransform.anchoredPosition3D.x, GameManager.Instance.UICanvas.pixelRect.size.y / 2 + rectTransform.sizeDelta.y);
+        hidingPos = new Vector3(0, GameManager.Instance.UICanvas.pixelRect.size.y / 2 + rectTransform.sizeDelta.y);
         rectTransform.anchoredPosition3D = hidingPos;
 
         if (clicksCatcher)
         {
             clicksCatcher.sizeDelta = GameManager.Instance.UICanvas.GetComponent<RectTransform>().sizeDelta;
         }
-        LeanTween.moveLocal(gameObject, new Vector3(GameManager.Instance.UICanvas.pixelRect.size.x / 2, 0), Consts.WINDOW_SHOWING_ANIM_TIME);
+        LeanTween.moveLocal(gameObject, Vector3.zero, Consts.WINDOW_SHOWING_ANIM_TIME);
     }
 
     public virtual void HideWindow()

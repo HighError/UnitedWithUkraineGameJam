@@ -14,6 +14,12 @@ public class CellWindow : BaseWindow
 
     private Cell cell;
 
+    protected override void Awake()
+    {
+        base.Awake();
+        rectTransform.anchoredPosition3D = new Vector3(1920, 0, 0);
+    }
+
     public void SetCell(Cell cell)
     {
         this.cell = cell;
