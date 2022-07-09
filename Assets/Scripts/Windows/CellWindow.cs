@@ -33,6 +33,7 @@ public class CellWindow : BaseWindow
         LevelText.text = "Current Level: " + cell.Level.ToString();
         ResourceStorageText.text = cell.CellData.Resource.ToString() + ": " 
             + cell.CurrentResourceCount.ToString() + "/" + cell.GetStoreLimit().ToString();
+        TitleImage.sprite = cell.CellData.Image;
         int cost = (cell.Level + 1) * cell.CellData.GoldPrice;
         if (cell.Level == 0)
         {

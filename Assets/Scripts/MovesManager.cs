@@ -26,6 +26,11 @@ public class MovesManager : MonoBehaviour
             }
         }
 
+        if (GameManager.Instance.PlayerData.turn > 50)
+        {
+            GameManager.Instance.PlayerData.money -= 5;
+        }
+
         GameManager.Instance.MapManager.cells.ForEach(cell => cell.NextMove());
         GameManager.Instance.UIManager.UpdateUI();
 
