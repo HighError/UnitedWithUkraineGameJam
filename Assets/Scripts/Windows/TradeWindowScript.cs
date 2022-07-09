@@ -16,6 +16,8 @@ public class TradeWindowScript : BaseWindow
     {
         base.Awake();
 
+        EventSystem.OnUpdateTradeWindowResourcesUINeeded += UpdateTradeWindowResourcesUI;
+
         int i = 0;
         foreach (var resourceInfo in GameManager.Instance.PlayerData.resourcesInfo)
         {
@@ -26,6 +28,7 @@ public class TradeWindowScript : BaseWindow
                 resourcesContainer.sizeDelta = new Vector2(resourcesContainer.sizeDelta.x, START_OFFSET_Y_RESOURCES / 2 + (i + 1) * infoItem.RectTransform.sizeDelta.y);
                 i++;
 
+                infoItem.ResourceType = resourceInfo.Key;
                 infoItem.CountText.text = resourceInfo.Key.ToString() + ": " + resourceInfo.Value.ToString();
                 foreach (var item in GameManager.Instance.Cache.GetCellDataList())
                 {
@@ -48,6 +51,20 @@ public class TradeWindowScript : BaseWindow
 
             infoItem.tradeOfferInfo = tradeOfferInfo;
             infoItem.UpdateUI();
+        }
+    }
+
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        EventSystem.OnUpdateTradeWindowResourcesUINeeded -= UpdateTradeWindowResourcesUI;
+    }
+
+    void UpdateTradeWindowResourcesUI()
+    {
+        foreach (var infoItem in resourcesContainer.GetComponentsInChildren<ResourceInfoItemScript>())
+        {
+            infoItem.CountText.text = infoItem.ResourceType.ToString() + ": " + GameManager.Instance.PlayerData.resourcesInfo[infoItem.ResourceType].ToString();
         }
     }
 }

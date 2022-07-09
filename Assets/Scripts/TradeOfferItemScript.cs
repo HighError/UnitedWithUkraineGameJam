@@ -47,6 +47,7 @@ public class TradeOfferItemScript : MonoBehaviour
         GameManager.Instance.PlayerData.money += tradeOfferInfo.Price;
         GameManager.Instance.PlayerData.resourcesInfo[tradeOfferInfo.ResourceType] -= 1;
         UpdateUI();
+        EventSystem.CallOnUpdateTradeWindowResourcesUINeeded();
         GameManager.Instance.UIManager.UpdateUI();
     }
 }
