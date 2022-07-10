@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        Instantiate(Cache.GetWindowByName("Tutor"), Vector3.zero, Quaternion.identity, UICanvas.transform);
+        Instantiate(Cache.GetWindowByName("Tutor"), UICanvas.transform);
     }
 
     private void Update()

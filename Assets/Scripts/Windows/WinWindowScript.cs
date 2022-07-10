@@ -16,8 +16,7 @@ public class WinWindowScript : BaseWindow
 
     protected override void Awake()
     {
-        if (!rectTransform)
-            rectTransform = GetComponent<RectTransform>();
+        transform.GetComponent<RectTransform>().anchoredPosition3D = Vector3.zero;
         ShowWindow();
 
         MovesText.text = "Moves: " + GameManager.Instance.PlayerData.turn.ToString();
@@ -25,6 +24,22 @@ public class WinWindowScript : BaseWindow
 #if UNITY_WEBGL && !UNITY_EDITOR
         LoginButton.gameObject.SetActive(false);
 #endif
+    }
+
+    public override void ButtonCloseOnClick()
+    {
+        
+    }
+
+    public override void HideWindow()
+    {
+        
+    }
+
+    public override void ShowWindow()
+    {
+        isWindowActive = true;
+        GameManager.Instance.PlaySound("ButtonClick");
     }
 
     private void UpdateUI()
