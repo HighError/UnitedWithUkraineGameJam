@@ -55,8 +55,8 @@ public class Cell
         int number = Random.Range(0, 3);
         if (number % 3 == 0 && CurrentResourceCount < GetStoreLimit())
         {
-            GameManager.Instance.MapManager.SetNotificationMap(Position, CurrentResourceCount != 0);
             CurrentResourceCount++;
+            GameManager.Instance.MapManager.SetNotificationMap(Position, CurrentResourceCount != 0);
         }
     }
 

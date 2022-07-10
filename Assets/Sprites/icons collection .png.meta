@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: -695274070560040003
     second: icons collection _0
+  - first:
+      213: 1530700866133474503
+    second: icons collection _1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -134,6 +137,27 @@ TextureImporter:
       bones: []
       spriteID: dbb9ab2aae3e956f0800000000000000
       internalID: -695274070560040003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icons collection _1
+      rect:
+        serializedVersion: 2
+        x: 3682
+        y: 1975
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ccb447e3542e3510800000000000000
+      internalID: 1530700866133474503
       vertices: []
       indices: 
       edges: []
