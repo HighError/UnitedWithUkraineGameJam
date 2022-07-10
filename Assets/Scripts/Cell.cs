@@ -43,7 +43,7 @@ public class Cell
         GameManager.Instance.UIManager.CreateNotification($"{count} {CellData.Resource} will be delivered in {distance} turns");
         GameManager.Instance.MovesManager.AddCallback(distance, () => GameManager.Instance.PlayerData.ResourceFromCells(CellData.Resource, count));
         CurrentResourceCount = 0;
-        GameManager.Instance.MapManager.SetNotificationMap(Position, false);
+        GameManager.Instance.MapManager.SetNotificationMap(Position, false, false);
         GameManager.Instance.PlayerData.money -= 5;
         if (GameManager.Instance.PlayerData.money < 0) {
             GameManager.Instance.PlayerData.money = 0;
@@ -56,7 +56,7 @@ public class Cell
         if (number % 3 == 0 && CurrentResourceCount < GetStoreLimit())
         {
             CurrentResourceCount++;
-            GameManager.Instance.MapManager.SetNotificationMap(Position, CurrentResourceCount != 0);
+            GameManager.Instance.MapManager.SetNotificationMap(Position, CurrentResourceCount != 0, CurrentResourceCount == GetStoreLimit());
         }
     }
 

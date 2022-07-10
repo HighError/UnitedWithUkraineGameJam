@@ -9,6 +9,7 @@ public class Map : MonoBehaviour
     public TileBase[] tiles;
     public TileBase myTile;
     public TileBase notificationTile;
+    public TileBase notificationFullTile;
 
     public Tilemap map { get; private set; }
     public Tilemap otherMap;
@@ -59,7 +60,7 @@ public class Map : MonoBehaviour
         map.SetTile(pos, myTile);
     }
 
-    public void SetNotificationMap(Vector3Int pos, bool active) {
-        otherMap.SetTile(pos, (active ? notificationTile : null));
+    public void SetNotificationMap(Vector3Int pos, bool active, bool full) {
+        otherMap.SetTile(pos, (active ? (full ? notificationFullTile : notificationTile) : null));
     }
 }

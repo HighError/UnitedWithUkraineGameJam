@@ -79677,6 +79677,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c7b4710d638f5434e8f7d4f81e727169, type: 2}
   myTile: {fileID: 11400000, guid: 44e9b99ef49d6994fb137c7811510024, type: 2}
   notificationTile: {fileID: 11400000, guid: 13127fdb0560e0946addf650929880a7, type: 2}
+  notificationFullTile: {fileID: 11400000, guid: 2c48b74a9c8003147b46c14ed6804a0f, type: 2}
   otherMap: {fileID: 1510780571}
   mapResources: {fileID: 1339258064}
 --- !u!1 &435323500
