@@ -19,6 +19,15 @@ public class CellWindow : BaseWindow
     {
         base.Awake();
         rectTransform.anchoredPosition3D = new Vector3(1920, 0, 0);
+        UpgradeButton.onClick.AddListener(Upgrade);
+        MoveToCityButton.onClick.AddListener(MoveToCity);
+    }
+
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        UpgradeButton.onClick.RemoveAllListeners();
+        MoveToCityButton.onClick.RemoveAllListeners();
     }
 
     public void SetCell(Cell cell)
@@ -56,30 +65,37 @@ public class CellWindow : BaseWindow
         MoveToCityButton.interactable = cell.CurrentResourceCount > 0;
     }
 
-    public void Upgrade() {
-        GameManager.Instance.PlaySound("ButtonClick");
-        cell.Upgrade();
-        ResetData();
+    private void Upgrade() {
+        if (!Input.GetKeyDown(KeyCode.Space))
+        {
+            GameManager.Instance.PlaySound("ButtonClick");
+            cell.Upgrade();
+            ResetData();
+        }
     }
 
-    public void MoveToCity() {
-        GameManager.Instance.PlaySound("ButtonClick");
-        cell.MoveToCity();
-        ResetData();
+    private void MoveToCity()
+    {
+        if (!Input.GetKeyDown(KeyCode.Space))
+        {
+            GameManager.Instance.PlaySound("ButtonClick");
+            cell.MoveToCity();
+            ResetData();
+        }
     }
 
     public override void ShowWindow()
     {
         GameManager.Instance.PlaySound("ButtonClick");
         isWindowActive = true;
-        hidingPos = new Vector3(GameManager.Instance.UICanvas.pixelRect.size.x / 2 + rectTransform.sizeDelta.x, 0);
+        hidingPos = new Vector3(GameManager.Instance.UICanvas.GetComponent<RectTransform>().sizeDelta.x / 2 + rectTransform.sizeDelta.x, 0);
         rectTransform.anchoredPosition3D = hidingPos;
 
         if (clicksCatcher)
         {
             clicksCatcher.sizeDelta = GameManager.Instance.UICanvas.GetComponent<RectTransform>().sizeDelta * 5;
         }
-        LeanTween.moveLocal(gameObject, new Vector3(GameManager.Instance.UICanvas.pixelRect.size.x / 2, 0), Consts.WINDOW_SHOWING_ANIM_TIME);
+        LeanTween.moveLocal(gameObject, new Vector3(GameManager.Instance.UICanvas.GetComponent<RectTransform>().sizeDelta.x / 2, 0), Consts.WINDOW_SHOWING_ANIM_TIME);
     }
 
     public override void HideWindow()
