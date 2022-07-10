@@ -87,7 +87,7 @@ MonoBehaviour:
 
     Control:
 
-    RMB - Move camera
+    LMB - Move camera
 
     Mouse
     Wheel - Zoom
